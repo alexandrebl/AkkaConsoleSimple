@@ -1,0 +1,2 @@
+# AkkaConsoleSimple
+Akka Console Simple
