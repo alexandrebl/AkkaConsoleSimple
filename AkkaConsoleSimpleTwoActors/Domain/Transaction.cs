@@ -7,13 +7,13 @@ namespace AkkaConsoleSimpleTwoActorsCall.Domain
 {
     public class Transaction
     {
-        public Guid Id { get; set; }
-        public DateTime CreateDate { get; set; }
-        public TransactionType TransactionType { get; set; }
-        public double Amount { get; set; }
-        public string AffiliationCode { get; set; }
+        public Guid Id { get; private set; }
+        public DateTime CreateDate { get; private set; }
+        public TransactionType TransactionType { get; private set; }
+        public double Amount { get; private set; }
+        public string AffiliationCode { get; private set; }
 
-        public Transaction()
+        public Transaction(TransactionType transactionType, double amount, string affiliationCode)
         {
             Id = Guid.NewGuid();
             CreateDate = DateTime.UtcNow;

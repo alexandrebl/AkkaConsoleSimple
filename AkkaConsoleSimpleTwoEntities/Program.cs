@@ -12,12 +12,12 @@ namespace AkkaConsoleSimpleTwoActors
             var system = ActorSystem.Create("ReportSystem");
             var reportActor = system.ActorOf<ReportActor>("greeter");
 
-            reportActor.Tell(new Person { Age = 38, Name = "Joe Satriani" });
-            reportActor.Tell(new Person { Age = 28, Name = "Steve Vai" });
-            reportActor.Tell(new Company { TaxDocument = "68363562525", Description = "Transportadora X"});
-            reportActor.Tell(new Company { TaxDocument = "12341341334", Description = "Transportadora W" });
-            reportActor.Tell(new Company { TaxDocument = "56778746746", Description = "Transportadora L" });
-            reportActor.Tell(new Company { TaxDocument = "75794749467", Description = "Transportadora Z" });
+            reportActor.Tell(new Person ("Joe Satriani", 38));
+            reportActor.Tell(new Person ("Steve Vai", 28));
+            reportActor.Tell(new Company ("68363562525", "Transportadora X"));
+            reportActor.Tell(new Company ("12341341334", "Transportadora W" ));
+            reportActor.Tell(new Company ("56778746746", "Transportadora L" ));
+            reportActor.Tell(new Company ("75794749467", "Transportadora Z" ));
 
             Console.Read();
         }
