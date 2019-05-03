@@ -17,6 +17,9 @@ namespace AkkaConsoleSimpleTwoActorsCall.Domain
         {
             Id = Guid.NewGuid();
             CreateDate = DateTime.UtcNow;
+            TransactionType = transactionType;
+            Amount = amount;
+            AffiliationCode = affiliationCode;
         }
     }
 }

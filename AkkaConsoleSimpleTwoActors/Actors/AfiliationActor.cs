@@ -1,7 +1,7 @@
 ﻿using System;
 using Akka.Actor;
 using AkkaConsoleSimpleTwoActorsCall.Domain;
-using AkkaConsoleSimpleTwoActorsCall.ValueObj;
+using AkkaConsoleSimpleTwoActorsCall.Library;
 
 namespace AkkaConsoleSimpleTwoActorsCall.Actors
 {
@@ -13,15 +13,13 @@ namespace AkkaConsoleSimpleTwoActorsCall.Actors
             {
                 if ((transaction.AffiliationCode == "0101") || (transaction.AffiliationCode == "0202"))
                 {
-                    var authorizationActor = Context.ActorOf(Props.Create(() => new AuthorizationActor()));
+                    var authorizationActor = Context.ActorOf(Props.Empty, nameof(AuthorizationActor));
 
                     authorizationActor.Tell(transaction);
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Authorization Response Code: 72 - Not authorized, invalid affiliation code");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    ConsoleUtility.PrintMsg("Authorization Response Code: 72 - Not authorized, invalid affiliation code", false);                    
                 }
             });
         }
