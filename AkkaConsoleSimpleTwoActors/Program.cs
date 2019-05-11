@@ -12,9 +12,7 @@ namespace AkkaConsoleSimpleTwoActorsCall
         {
             var system = ActorSystem.Create("ReportSystem");
             var afiliationActor = system.ActorOf<AfiliationActor>(nameof(AfiliationActor));
-
-            system.ActorOf<AuthorizationActor>(nameof(AuthorizationActor));
-
+            
             var transactionA = new Transaction(TransactionType.ECommerce, 100.00, "0101");
             var transactionB = new Transaction(TransactionType.TEF, 101.00, "0202");
             var transactionC = new Transaction(TransactionType.TEF, 97.00, "0303");

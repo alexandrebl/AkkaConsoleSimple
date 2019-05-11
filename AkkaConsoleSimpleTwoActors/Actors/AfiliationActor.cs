@@ -13,9 +13,11 @@ namespace AkkaConsoleSimpleTwoActorsCall.Actors
             {
                 if ((transaction.AffiliationCode == "0101") || (transaction.AffiliationCode == "0202"))
                 {
-                    var authorizationActor = Context.ActorOf(Props.Empty, nameof(AuthorizationActor));
+                    var authorizationActor = Context.ActorOf(Props.Create(() => new AuthorizationActor()));
 
                     authorizationActor.Tell(transaction);
+
+                    authorizationActor.GracefulStop(new TimeSpan(10000));
                 }
                 else
                 {
@@ -23,6 +25,5 @@ namespace AkkaConsoleSimpleTwoActorsCall.Actors
                 }
             });
         }
-
     }
 }
