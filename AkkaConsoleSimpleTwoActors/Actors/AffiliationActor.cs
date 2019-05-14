@@ -5,9 +5,9 @@ using AkkaConsoleSimpleTwoActorsCall.Library;
 
 namespace AkkaConsoleSimpleTwoActorsCall.Actors
 {
-    public class AfiliationActor : ReceiveActor
+    public class AffiliationActor : ReceiveActor
     {
-        public AfiliationActor()
+        public AffiliationActor()
         {
             Receive<Transaction>(transaction =>
             {

@@ -6,12 +6,12 @@ using AkkaConsoleSimpleTwoActorsCall.ValueObj;
 
 namespace AkkaConsoleSimpleTwoActorsCall
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var system = ActorSystem.Create("ReportSystem");
-            var afiliationActor = system.ActorOf<AfiliationActor>(nameof(AfiliationActor));
+            var system = ActorSystem.Create("TransactionSystem");
+            var afiliationActor = system.ActorOf<AffiliationActor>(nameof(AffiliationActor));
             
             var transactionA = new Transaction(TransactionType.ECommerce, 100.00, "0101");
             var transactionB = new Transaction(TransactionType.TEF, 101.00, "0202");
